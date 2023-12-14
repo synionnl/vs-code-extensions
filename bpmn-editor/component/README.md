@@ -1,6 +1,10 @@
 # BPMN editor
 
-HTML5 web component which creates an BPMN editor.
+HTML5 web component which creates an BPMN editor for different execution engines:
+
+- Vanilla BPMN
+- Camunda Platform (Camunda 7)
+- Camunda Cloud (Camunda 8, Zeebee)
 
 ## Usage
 
