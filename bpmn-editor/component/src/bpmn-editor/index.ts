@@ -1,5 +1,5 @@
 import { html, LitElement } from "lit";
-import { customElement, property, state } from "lit/decorators.js";
+import { customElement, property, query, state } from "lit/decorators.js";
 
 import "../vanilla-bpmn-editor";
 import "../camunda-7-bpmn-editor";
@@ -11,6 +11,9 @@ import { Camunda8BpmnEditorComponent } from "../camunda-8-bpmn-editor";
 @customElement("bpmn-editor")
 export class BPMNEditorComponent extends LitElement {
   private _xml!: string
+
+  @query('#editor')
+  _editor!: VanillaBpmnEditorComponent;
 
   @state()
   private _platform!: string | null;
@@ -48,6 +51,10 @@ export class BPMNEditorComponent extends LitElement {
           return html`<p>${this._platform} is not a known execution platform.</p>`;
       }
     }
+  }
+
+  public toggleProperties() {
+    this._editor.toggleProperties();
   }
 
   private _determinePlatform(): string | null {
